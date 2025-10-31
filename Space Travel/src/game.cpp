@@ -5,6 +5,7 @@
 #include "consts.h"
 #include "screens.h"
 
+#include "mainMenu.h"
 #include "gameplay.h"
 
 namespace run
@@ -19,15 +20,22 @@ namespace run
 
 		playerFunctions::setDefault(player);
 
-		SCREENS currentScreen = GAMEPLAY;
+		bool shouldClose = false;
+
+
+		SCREENS currentScreen = MAIN_MENU;
 
 		while (!WindowShouldClose())
 		{
+			BeginDrawing();
+
+			ClearBackground(BLACK);
+
 			switch (currentScreen)
 			{
 			case MAIN_MENU:
 
-
+				run::mainMenu(currentScreen);
 
 				break;
 			case GAMEPLAY:
@@ -40,14 +48,21 @@ namespace run
 
 
 				break;
-			case EXIT:
+			case EXIT:				
 				
-				CloseWindow();
+				shouldClose = true;
 				
 				break;
 			default:
 				break;
 			}
+
+			DrawText("Version 0.1", 10, screen::height - 30, 20, RED);
+
+			EndDrawing();
+
+			if (shouldClose)
+				CloseWindow();
 		}
 	}
 }

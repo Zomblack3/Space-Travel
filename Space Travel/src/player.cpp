@@ -37,7 +37,7 @@ namespace playerFunctions
 			player.rotation = 30.0f;
 		}
 
-		if (player.hitbox.y < screen::height - player.hitbox.height)
+		if (player.hitbox.y - player.hitbox.height < screen::height)
 			player.hitbox.y += fallSpeed * deltaTime;
 	}
 
