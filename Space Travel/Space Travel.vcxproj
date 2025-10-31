@@ -158,12 +158,14 @@
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\gameplay.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\obstacle.cpp" />
     <ClCompile Include="src\player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\consts.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\gameplay.h" />
+    <ClInclude Include="src\obstacle.h" />
     <ClInclude Include="src\player.h" />
     <ClInclude Include="src\screens.h" />
   </ItemGroup>

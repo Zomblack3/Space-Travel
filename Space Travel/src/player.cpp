@@ -7,14 +7,11 @@ namespace playerFunctions
 	void setDefault(object::Player& player)
 	{
 		const float startingPosX = 50.0f;
-		const float startingWidth = 50.0f;
-		const float startingHeight = 50.0f;
-
-		player.pos.x = startingPosX;
-		player.pos.y = screen::height / 2.0f;
+		const float startingWidth = 35.0f;
+		const float startingHeight = 35.0f;
 		
-		player.hitbox.x = player.pos.x;
-		player.hitbox.y = player.pos.y;
+		player.hitbox.x = startingPosX;
+		player.hitbox.y = screen::height / 2.0f;
 		player.hitbox.width = startingWidth;
 		player.hitbox.height = startingHeight;
 

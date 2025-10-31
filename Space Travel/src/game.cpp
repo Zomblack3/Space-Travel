@@ -15,6 +15,8 @@ namespace run
 
 		object::Player player;
 
+		std::vector <object::Obstacle> obstacles = { };
+
 		playerFunctions::setDefault(player);
 
 		SCREENS currentScreen = GAMEPLAY;
@@ -30,7 +32,7 @@ namespace run
 				break;
 			case GAMEPLAY:
 				
-				run::gameplay(currentScreen, player);
+				run::gameplay(currentScreen, player, obstacles);
 				
 				break;
 			case EXIT:

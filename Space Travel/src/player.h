@@ -6,7 +6,6 @@ namespace object
 {
 	struct Player
 	{
-		Vector2 pos = { };
 		Vector2 origin = { };
 
 		Rectangle hitbox = { };
