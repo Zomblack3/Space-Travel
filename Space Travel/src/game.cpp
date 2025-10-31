@@ -13,6 +13,10 @@ namespace run
 	{
 		InitWindow(screen::width, screen::height, "SPACE TRAVEL");
 
+		object::Player player;
+
+		playerFunctions::setDefault(player);
+
 		SCREENS currentScreen = GAMEPLAY;
 
 		while (!WindowShouldClose())
@@ -26,12 +30,12 @@ namespace run
 				break;
 			case GAMEPLAY:
 				
-				run::gameplay(currentScreen);
+				run::gameplay(currentScreen, player);
 				
 				break;
 			case EXIT:
 				
-				
+				CloseWindow();
 				
 				break;
 			default:
