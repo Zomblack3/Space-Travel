@@ -44,6 +44,7 @@ namespace basicFunctionsGameplay
 					currentScreen = EXIT;
 			}
 			else
+			{
 				if (IsKeyPressed(KEY_ENTER))
 				{
 					player.isActive = false;
@@ -53,6 +54,19 @@ namespace basicFunctionsGameplay
 
 					gameplayFunctions::despawnAllObstacles(obstacles);
 				}
+
+				if (IsKeyPressed(KEY_S))
+				{
+					player.isActive = false;
+					player.hasLose = false;
+
+					playerFunctions::setDefault(player);
+
+					gameplayFunctions::despawnAllObstacles(obstacles);
+
+					currentScreen = MAIN_MENU;
+				}
+			}
 		}
 		else
 		{
@@ -64,11 +78,8 @@ namespace basicFunctionsGameplay
 	void draw(object::Player player, std::vector <object::Obstacle> obstacles)
 	{
 		int startingTextLenght = MeasureText("Presione ENTER para iniciar", 40);
-		int loseTextLenght = MeasureText("Has perdido, presione ENTER para reiniciar", 40);
-
-		BeginDrawing();
-
-		ClearBackground(BLACK);
+		int resetTextLenght = MeasureText("Has perdido, presione ENTER para reiniciar", 40);
+		int returnTextLenght = MeasureText("o presiona S para salir", 40);
 
 		playerFunctions::draw(player);
 
@@ -79,11 +90,10 @@ namespace basicFunctionsGameplay
 			DrawText("Presione ENTER para iniciar", (screen::width / 2) - (startingTextLenght / 2), screen::height / 2, 40, BLUE);
 
 		if (player.hasLose)
-			DrawText("Has perdido, presione ENTER para reiniciar", (screen::width / 2) - (loseTextLenght / 2), screen::height / 2, 40, BLUE);
-
-		DrawText("Version 0.1", 10, screen::height - 30, 20, RED);
-
-		EndDrawing();
+		{
+			DrawText("Has perdido, presione ENTER para reiniciar", (screen::width / 2) - (resetTextLenght / 2), screen::height / 2, 40, BLUE);
+			DrawText("o presiona S para salir", (screen::width / 2) - (returnTextLenght / 2), screen::height / 2 + 50, 40, BLUE);
+		}
 	}
 }
 
