@@ -77,9 +77,9 @@ namespace basicFunctionsGameplay
 
 	void draw(object::Player player, std::vector <object::Obstacle> obstacles)
 	{
-		int startingTextLenght = MeasureText("Presione ENTER para iniciar", 40);
-		int resetTextLenght = MeasureText("Has perdido, presione ENTER para reiniciar", 40);
-		int returnTextLenght = MeasureText("o presiona S para salir", 40);
+		int startingTextLenght = MeasureText("Presione ENTER para iniciar", texts::mediumSize);
+		int resetTextLenght = MeasureText("Has perdido, presione ENTER para reiniciar", texts::mediumSize);
+		int returnTextLenght = MeasureText("o presiona S para salir", texts::mediumSize);
 
 		playerFunctions::draw(player);
 
@@ -87,12 +87,12 @@ namespace basicFunctionsGameplay
 			obstacleFunctions::draw(obstacles.at(i));
 
 		if (!player.isActive)
-			DrawText("Presione ENTER para iniciar", (screen::width / 2) - (startingTextLenght / 2), screen::height / 2, 40, BLUE);
+			DrawText("Presione ENTER para iniciar", (screen::width / 2) - (startingTextLenght / 2), screen::height / 2, texts::mediumSize, BLUE);
 
 		if (player.hasLose)
 		{
-			DrawText("Has perdido, presione ENTER para reiniciar", (screen::width / 2) - (resetTextLenght / 2), screen::height / 2, 40, BLUE);
-			DrawText("o presiona S para salir", (screen::width / 2) - (returnTextLenght / 2), screen::height / 2 + 50, 40, BLUE);
+			DrawText("Has perdido, presione ENTER para reiniciar", (screen::width / 2) - (resetTextLenght / 2), screen::height / 2, texts::mediumSize, BLUE);
+			DrawText("o presiona S para salir", (screen::width / 2) - (returnTextLenght / 2), screen::height / 2 + 50, texts::mediumSize, BLUE);
 		}
 	}
 }
@@ -100,6 +100,7 @@ namespace basicFunctionsGameplay
 namespace gameplayFunctions
 {
 	float spawnTimer = 0.0f;
+	float spawnTimerSpeed = 10.0f;
 
 	void spawnObstacle(std::vector <object::Obstacle>& obstacles, float deltaTime)
 	{
@@ -112,7 +113,7 @@ namespace gameplayFunctions
 			spawnTimer = baseSpawnTimer;
 		}
 		else
-			spawnTimer -= deltaTime * 10.0f;
+			spawnTimer -= deltaTime * spawnTimerSpeed;
 	}
 
 	void despawnObstacle(std::vector <object::Obstacle>& obstacles, int index)

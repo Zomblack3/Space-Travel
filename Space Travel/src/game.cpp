@@ -22,8 +22,8 @@ namespace run
 
 		bool shouldClose = false;
 
-		int creditsLenght = MeasureText("Creado por Zomblack3 (Santiago Britos)", 30);
-		int returnLenght = MeasureText("Presione ENTER para volver", 30);
+		int creditsLenght = MeasureText("Creado por Zomblack3 (Santiago Britos)", texts::basicSize);
+		int returnLenght = MeasureText("Presione ENTER para volver", texts::basicSize);
 
 		SCREENS currentScreen = MAIN_MENU;
 
@@ -47,8 +47,8 @@ namespace run
 				break;
 			case CREDITS:
 
-				DrawText("Creado por Zomblack3 (Santiago Britos)", (screen::width / 2) - (creditsLenght / 2), screen::height / 2, 30, WHITE);
-				DrawText("Presione ENTER para volver", (screen::width / 2) - (returnLenght / 2), screen::height / 2 + 100, 30, WHITE);
+				DrawText("Creado por Zomblack3 (Santiago Britos)", (screen::width / 2) - (creditsLenght / 2), screen::height / 2, texts::basicSize, WHITE);
+				DrawText("Presione ENTER para volver", (screen::width / 2) - (returnLenght / 2), screen::height / 2 + texts::spaceBetweenY * 2, texts::basicSize, WHITE);
 
 				if (IsKeyPressed(KEY_ENTER))
 					currentScreen = MAIN_MENU;
@@ -63,7 +63,7 @@ namespace run
 				break;
 			}
 
-			DrawText("Version 0.1", 10, screen::height - 30, 20, RED);
+			DrawText("Version 0.2", 10, screen::height - 30, 20, RED);
 
 			EndDrawing();
 

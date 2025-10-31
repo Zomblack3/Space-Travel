@@ -29,12 +29,12 @@ namespace basicFunctionsMM
 
 	void draw()
 	{
-		int gameplayInstrutionLenght = MeasureText("Presione S para iniciar", 30);
-		int creditsInstrutionLenght = MeasureText("Presione C para ver los creditos", 30);
-		int exitInstrutionLenght = MeasureText("Presione E para salir", 30);
+		int gameplayInstrutionLenght = MeasureText("Presione S para iniciar", texts::basicSize);
+		int creditsInstrutionLenght = MeasureText("Presione C para ver los creditos", texts::basicSize);
+		int exitInstrutionLenght = MeasureText("Presione E para salir", texts::basicSize);
 
-		DrawText("Presione S para iniciar", (screen::width / 2) - (gameplayInstrutionLenght / 2), screen::height / 2, 30, WHITE);
-		DrawText("Presione C para ver los creditos", (screen::width / 2) - (creditsInstrutionLenght / 2), screen::height / 2 + 50, 30, WHITE);
-		DrawText("Presione E para salir", (screen::width / 2) - (exitInstrutionLenght / 2), screen::height / 2 + 100, 30, WHITE);
+		DrawText("Presione S para iniciar", (screen::width / 2) - (gameplayInstrutionLenght / 2), screen::height / 2, texts::basicSize, WHITE);
+		DrawText("Presione C para ver los creditos", (screen::width / 2) - (creditsInstrutionLenght / 2), screen::height / 2 + texts::spaceBetweenY, texts::basicSize, WHITE);
+		DrawText("Presione E para salir", (screen::width / 2) - (exitInstrutionLenght / 2), (screen::height / 2) + (texts::spaceBetweenY * 2), texts::basicSize, WHITE);
 	}
 }
