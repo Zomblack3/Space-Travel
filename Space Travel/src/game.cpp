@@ -35,6 +35,11 @@ namespace run
 				run::gameplay(currentScreen, player, obstacles);
 				
 				break;
+			case CREDITS:
+
+
+
+				break;
 			case EXIT:
 				
 				CloseWindow();

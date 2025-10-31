@@ -37,7 +37,7 @@ namespace basicFunctionsGameplay
 
 				gameplayFunctions::spawnObstacle(obstacles, deltaTime);
 
-				if (gameplayFunctions::checkPlayerObstacleCollition(obstacles, player))
+				if (gameplayFunctions::checkPlayerObstacleCollition(obstacles, player) || player.hitbox.y + (player.hitbox.height / 2) > screen::height)
 					player.hasLose = true;
 
 				if (IsKeyPressed(KEY_ESCAPE))
@@ -122,15 +122,15 @@ namespace gameplayFunctions
 	{
 		for (int i = 0; i < obstacles.size(); i++)
 		{
-			if (player.hitbox.x + player.hitbox.width >= obstacles.at(i).hitbox1.x &&
+			if (player.hitbox.x + (player.hitbox.width / 2.0f) >= obstacles.at(i).hitbox1.x &&
 				player.hitbox.x <= obstacles.at(i).hitbox1.x + obstacles.at(i).hitbox1.width &&
-				player.hitbox.y + player.hitbox.height >= obstacles.at(i).hitbox1.y &&
+				player.hitbox.y + (player.hitbox.height / 2.0f) >= obstacles.at(i).hitbox1.y &&
 				player.hitbox.y <= obstacles.at(i).hitbox1.y + obstacles.at(i).hitbox1.height)
 				return true;
 
-			if (player.hitbox.x + player.hitbox.width >= obstacles.at(i).hitbox2.x &&
+			if (player.hitbox.x + (player.hitbox.width / 2.0f) >= obstacles.at(i).hitbox2.x &&
 				player.hitbox.x <= obstacles.at(i).hitbox2.x + obstacles.at(i).hitbox2.width &&
-				player.hitbox.y + player.hitbox.height >= obstacles.at(i).hitbox2.y &&
+				player.hitbox.y + (player.hitbox.height / 2.0f) >= obstacles.at(i).hitbox2.y &&
 				player.hitbox.y <= obstacles.at(i).hitbox2.y + obstacles.at(i).hitbox2.height)
 				return true;
 		}

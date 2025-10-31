@@ -31,7 +31,9 @@ namespace playerFunctions
 
 		if (IsKeyPressed(KEY_SPACE))
 		{
-			player.hitbox.y -= 50.0f;
+			if (player.hitbox.y - player.hitbox.height > 0.0f)
+				player.hitbox.y -= 50.0f;
+			
 			player.rotation = 30.0f;
 		}
 
