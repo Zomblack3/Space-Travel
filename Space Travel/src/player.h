@@ -13,8 +13,10 @@ namespace object
 		Color color = WHITE;
 
 		float rotation = 0.0f;
+		float jumpingTimer = 0.0f;
 
 		bool isActive = false;
+		bool isJumping = false;
 		bool hasLose = false;
 	};
 }

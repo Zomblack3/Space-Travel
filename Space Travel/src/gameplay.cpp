@@ -27,7 +27,7 @@ namespace basicFunctionsGameplay
 
 				if (obstacles.size() > 0)
 				{
-					for (int i = 0; i < obstacles.size(); i++)
+					for (unsigned int i = 0; i < obstacles.size(); i++)
 					{
 						obstacleFunctions::move(obstacles.at(i), deltaTime);
 
@@ -83,7 +83,7 @@ namespace basicFunctionsGameplay
 
 		playerFunctions::draw(player);
 
-		for (int i = 0; i < obstacles.size(); i++)
+		for (unsigned int i = 0; i < obstacles.size(); i++)
 			obstacleFunctions::draw(obstacles.at(i));
 
 		if (!player.isActive)
@@ -124,14 +124,14 @@ namespace gameplayFunctions
 
 	void despawnAllObstacles(std::vector<object::Obstacle>& obstacles)
 	{
-		for (int i = 0; i < obstacles.size();)
+		for (unsigned int i = 0; i < obstacles.size();)
 			if (obstacles.size() > 0)
 				obstacles.erase(obstacles.begin());
 	}
 
 	bool checkPlayerObstacleCollition(std::vector<object::Obstacle>& obstacles, object::Player& player)
 	{
-		for (int i = 0; i < obstacles.size(); i++)
+		for (unsigned int i = 0; i < obstacles.size(); i++)
 		{
 			if (player.hitbox.x + (player.hitbox.width / 2.0f) >= obstacles.at(i).hitbox1.x &&
 				player.hitbox.x <= obstacles.at(i).hitbox1.x + obstacles.at(i).hitbox1.width &&

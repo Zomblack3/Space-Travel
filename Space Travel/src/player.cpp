@@ -28,20 +28,36 @@ namespace playerFunctions
 
 	void move(object::Player& player, float deltaTime)
 	{
-		const float fallSpeed = 100.0f;
-		const float jumpForce = 50.0f;
 		const float jumpRotation = 30.0f;
+		const float baseJumpingTime = 0.5f;
+		
+		float gravity = 500.0f;
+		float jumpStrenght = -150.0f;
+		float fallSpeed = jumpStrenght;
+
+		if (!player.isJumping)
+		{
+			fallSpeed += gravity * deltaTime;
+			player.hitbox.y -= fallSpeed * deltaTime;
+		}
+		else
+		{
+			player.hitbox.y -= (jumpStrenght * -1.0f) * deltaTime;
+			player.jumpingTimer -= deltaTime;
+		}
 
 		if (IsKeyPressed(KEY_SPACE))
 		{
-			if (player.hitbox.y - player.hitbox.height > 0.0f)
-				player.hitbox.y -= jumpForce;
+			fallSpeed = jumpStrenght;
+
+			player.isJumping = true;
+			player.jumpingTimer = baseJumpingTime;
 			
 			player.rotation = jumpRotation;
 		}
 
-		if (player.hitbox.y - player.hitbox.height < screen::height)
-			player.hitbox.y += fallSpeed * deltaTime;
+		if (player.jumpingTimer < 0)
+			player.isJumping = false;
 	}
 
 	void rotate(object::Player& player, float deltaTime)

@@ -8,7 +8,7 @@ namespace screen
 
 namespace texts
 {
-	int basicSize = 30;
-	int mediumSize = 40;
-	int spaceBetweenY = 50;
+	const int basicSize = 30;
+	const int mediumSize = 40;
+	const int spaceBetweenY = 50;
 }
